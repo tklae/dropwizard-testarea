@@ -29,11 +29,36 @@ allprojects {
         }
     }
 
+    test {
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
+
+    // Set our project variables
+    project.ext {
+        dropwizardVersion = '0.6.2'
+    }
+
     task "generateFolders" << {
         sourceSets*.java.srcDirs*.each { it.mkdirs() }
         sourceSets*.resources.srcDirs*.each { it.mkdirs() }
     }
 
+}
+
+project(':api') {
+    dependencies {
+        compile project(':shared')
+        testCompile project(':shared').sourceSets.test.output
+    }
+}
+
+project(':web') {
+    dependencies {
+        compile project(':shared')
+        testCompile project(':shared').sourceSets.test.output
+    }
 }
 
 // Set git as default VCS in IntelliJ

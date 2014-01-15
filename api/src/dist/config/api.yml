@@ -1,0 +1,5 @@
+http:
+  port: 8113
+  adminPort: 8114
+
+defaultName: api
