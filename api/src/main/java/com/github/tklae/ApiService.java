@@ -1,6 +1,8 @@
 package com.github.tklae;
 
 import com.github.tklae.configuration.ApiConfiguration;
+import com.github.tklae.health.StatusHealthCheck;
+import com.github.tklae.resources.HelloWorldResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
@@ -22,12 +24,12 @@ public class ApiService extends Service<ApiConfiguration> {
 
     @Override
     public void run(ApiConfiguration configuration, Environment environment) throws Exception {
-//        environment.addResource(new PreferencesResource(new PreferencesRepository(configuration, apiClientGenie, mapper, persister, new ApiExceptionMapper(mapper, persister)), analyticsRecorder));
+        environment.addResource(new HelloWorldResource());
 
-//        environment.addHealthCheck(new StatusHealthCheck(configuration));
-//        environment.addProvider(new BasicAuthProvider<PartnerUser>(new PartnerAuthenticator(configuration), "Easy Checkout"));
+        environment.addHealthCheck(new StatusHealthCheck(configuration));
+//        environment.addProvider();
 
-//        environment.addFilter(new LoggingFilter(), baseUrlFor(QuoteDetailsResource.class));
+//        environment.addFilter(new LoggingFilter(), baseUrlFor(HellowWorldResource.class));
     }
 
 

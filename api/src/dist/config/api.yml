@@ -1,5 +1,7 @@
+serviceName: api
+versionNumber: 1.0
+
 http:
   port: 8113
   adminPort: 8114
 
-defaultName: api
