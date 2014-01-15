@@ -1,0 +1,7 @@
+serviceName: web
+versionNumber: 1.0
+
+http:
+  port: 8110
+  adminPort: 8111
+
