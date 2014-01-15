@@ -62,8 +62,6 @@ namespace :run do
   end
 
   task :web do
-    puts "!!!!!!!!!!!!!"
-    puts WEB_CONFIGURATION_PATH
     start_application(WEB_DIR)
   end
 
